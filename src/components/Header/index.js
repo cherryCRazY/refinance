@@ -38,9 +38,6 @@ const Header = () => {
     lol()
   }
 
-  if (average > monthPayment) {
-  }
-
   const average = findAvarage(+sum, +count)
   const determ = monthPayment - average
 
