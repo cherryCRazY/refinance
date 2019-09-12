@@ -1,0 +1,36 @@
+.advanteges_wrapper {
+  background: #faf5f4;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  padding: 150px 0;
+
+  .advanteges {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .advanteges {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+  }
+}
+
+@media (max-width: 961px) {
+  .advanteges_wrapper {
+    .advanteges {
+      width: 70%;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}

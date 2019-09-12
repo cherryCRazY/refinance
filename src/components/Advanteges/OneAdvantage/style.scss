@@ -1,0 +1,45 @@
+.Advantage {
+  display: grid;
+  grid-gap: 20%;
+  justify-items: center;
+  justify-content: center;
+  img {
+    width: 120px;
+  }
+  .text {
+    color: #31479a;
+    font-size: 48px;
+    width: 90%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .Advantage {
+    img {
+      margin: 25px 0;
+    }
+    .text {
+      padding-bottom: 25px;
+      text-align: center;
+      color: #31479a;
+      font-size: 38px;
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .Advantage {
+    grid-gap: 10%;
+    img {
+      width: 95px;
+    }
+    .text {
+      padding-bottom: 25px;
+      text-align: center;
+      color: #31479a;
+      font-size: 28px;
+      width: 90%;
+    }
+  }
+}
