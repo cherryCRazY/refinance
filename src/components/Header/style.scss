@@ -33,7 +33,7 @@ header {
   }
 
   .form {
-    height: 80%;
+    // height: 80%;
     display: grid;
     justify-content: flex-start;
     justify-items: flex-start;
@@ -152,23 +152,33 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   header {
     grid-template-columns: 55% 45%;
     .form {
-      height: 80%;
+      height: 85%;
+      .input {
+        height: 45px;
+      }
+    }
+
+    .sale {
+      margin-bottom: 20px;
     }
 
     .header {
       &.title {
-        font-size: 46px;
+        font-size: 36px;
+        text-align: center;
       }
       &.subtitle {
         font-size: 27.5px;
+        text-align: center;
       }
     }
     .input {
       width: 80%;
+      height: 25px;
     }
   }
 }

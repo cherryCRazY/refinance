@@ -103,7 +103,7 @@ const Header = () => {
           ></Slider>
         </div>
 
-        <div className="small_inputs input_wrapper">
+        <div className="small_inputs input_wrapper sale">
           <label>
             <p className="text small">Економія за місяць</p>
             <div type="number" className="input small tas">
