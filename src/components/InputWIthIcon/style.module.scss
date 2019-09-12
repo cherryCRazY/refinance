@@ -1,5 +1,5 @@
 .InputWithIcon {
-  width: 479px;
+  width: 120%;
   display: grid;
   grid-template-columns: 15% 60%;
   grid-gap: 2px;
@@ -47,7 +47,7 @@
 
     margin-bottom: 50px;
     .imageWrapper {
-      margin-right: 22px;
+      margin-right: 85px;
     }
   }
 }
@@ -62,8 +62,14 @@
 }
 @media (max-width: 400px) {
   .InputWithIcon {
-    grid-template-columns: 21% 70%;
+    grid-template-columns: 21% 63%;
     margin-left: 10px;
     justify-content: center;
+  }
+}
+@media (max-width: 340px) {
+  .InputWithIcon {
+    width: 280px;
+    grid-template-columns: 24% 70%;
   }
 }
