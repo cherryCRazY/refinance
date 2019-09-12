@@ -31,9 +31,9 @@
 
 @media (max-width: 500px) {
   .Advantage {
-    grid-gap: 10%;
+    grid-gap: unset;
     img {
-      width: 95px;
+      width: 65px;
     }
     .text {
       padding-bottom: 25px;

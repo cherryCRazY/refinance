@@ -28,10 +28,12 @@
 
 @media (max-width: 961px) {
   .advanteges_wrapper {
+    padding: unset;
     .advanteges {
       width: 70%;
       display: grid;
       grid-template-columns: 1fr;
+      grid-gap: unset;
     }
   }
 }

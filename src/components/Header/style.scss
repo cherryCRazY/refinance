@@ -18,7 +18,7 @@ header {
     color: white;
     display: inline-block;
     &.title {
-      font-size: 64px;
+      font-size: 44px;
     }
     &.subtitle {
       font-style: normal;
@@ -76,6 +76,14 @@ header {
       font-family: "GothamProLight";
       background: #bbcce6;
       border-radius: 10px;
+      &:focus {
+        border: 1px solid white;
+        background: #9bb9e7;
+      }
+      &.tas {
+        background: #ffdc73;
+        font-weight: bold;
+      }
       &.small {
         width: 100%;
       }
@@ -90,6 +98,7 @@ header {
     justify-self: center;
     object-fit: contain;
   }
+
   .logo {
     position: absolute;
     left: 85%;
@@ -112,6 +121,7 @@ header {
     display: grid;
   }
 }
+
 .range_wrapper {
   width: 70%;
   display: flex;
@@ -146,7 +156,7 @@ input::-webkit-inner-spin-button {
   header {
     grid-template-columns: 55% 45%;
     .form {
-      height: 90%;
+      height: 80%;
     }
 
     .header {
@@ -165,9 +175,14 @@ input::-webkit-inner-spin-button {
 
 @media (max-width: 1200px) and (min-width: 961px) {
   header {
+    .logo {
+      left: 100%;
+      transform: translate(-150%, 0);
+    }
     grid-template-columns: 50% 50%;
     .form {
       grid-gap: 2%;
+      height: 80%;
       .header {
         &.title {
           font-size: 54px;
@@ -180,11 +195,8 @@ input::-webkit-inner-spin-button {
       .input_wrapper {
         width: 85%;
       }
-      .logo {
-        left: 100%;
-        transform: translate(-150%, 0);
-      }
     }
+
     .money_box {
       width: 400px;
     }
@@ -196,9 +208,15 @@ input::-webkit-inner-spin-button {
 
 @media (max-width: 961px) {
   header {
+    .logo {
+      position: unset;
+    }
     grid-template-columns: 1fr;
     .wrapper_text {
       margin-top: 8%;
+      .logo {
+        display: none;
+      }
     }
 
     .form {
@@ -211,15 +229,13 @@ input::-webkit-inner-spin-button {
       .input_wrapper {
         width: 85%;
       }
-      .logo {
-        position: unset;
-      }
     }
   }
 }
 
 @media (max-width: 500px) {
   header {
+    grid-gap: 5%;
     .logo {
       display: none;
     }
@@ -234,10 +250,12 @@ input::-webkit-inner-spin-button {
     }
     .header {
       &.title {
-        font-size: 34px;
+        text-align: center;
+        font-size: 32px;
       }
       &.subtitle {
-        font-size: 19.5px;
+        font-size: 20.5px;
+        text-align: center;
       }
     }
     .small_inputs {
@@ -248,7 +266,7 @@ input::-webkit-inner-spin-button {
     }
 
     .form {
-      margin-top: 8%;
+      margin-top: 4%;
       height: 100%;
 
       grid-gap: 2%;
@@ -257,7 +275,7 @@ input::-webkit-inner-spin-button {
         width: 85%;
       }
       .text {
-        font-size: 20px;
+        font-size: 18px;
 
         &.under_text {
           text-align: center;
@@ -272,11 +290,18 @@ input::-webkit-inner-spin-button {
   header {
     .header {
       &.title {
-        font-size: 29px;
+        font-size: 27px;
       }
       &.subtitle {
-        font-size: 17.5px;
+        font-size: 21.5px;
+        text-align: center;
         margin-bottom: 30px;
+      }
+    }
+    .small_inputs {
+      .small_logo {
+        width: 35px;
+        height: unset;
       }
     }
   }

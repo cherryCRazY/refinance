@@ -65,6 +65,11 @@
     grid-template-columns: 21% 63%;
     margin-left: 10px;
     justify-content: center;
+    .input {
+      font-size: 19px;
+      font-weight: 600;
+      text-align: left;
+    }
   }
 }
 @media (max-width: 340px) {
