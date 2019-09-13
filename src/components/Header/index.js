@@ -41,6 +41,11 @@ const Header = () => {
   const average = findAvarage(+sum, +count)
   const determ = monthPayment - average
 
+  console.log(
+    `%c TASCOMBANK`,
+    "background: #333366; color: white; font-size: 15px; padding: 3px 40%;"
+  )
+
   return (
     <header>
       <div className="wrapper_text">
@@ -66,8 +71,6 @@ const Header = () => {
               className="input small"
               change={handleChangeMonthPayment}
             ></CustomInput>
-            {console.log(sum)}
-            {console.log(monthPayment)}
           </label>
           <label></label>
           <label>
@@ -79,7 +82,6 @@ const Header = () => {
                 alt="ТАСКОМБАНК РЕФІНАНС"
               ></img>
             </p>
-            {console.log(checkField)}
             <input
               type="text"
               value={checkField && average > 0 ? average : " "}

@@ -10,6 +10,9 @@ import SEO from "../components/seo"
 //Styles
 import "../styles/main.scss"
 
+
+
+
 const IndexPage = () => (
   <div>
     <SEO title="РЕФІНАНС" />

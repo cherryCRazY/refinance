@@ -1,9 +1,23 @@
-.InputWithIcon {
-  width: 120%;
+.InputWithIconWrapper {
   display: grid;
-  grid-template-columns: 15% 60%;
+  p {
+    width: 60%;
+    justify-self: center;
+    display: inline;
+    font-weight: bold;
+    text-align: center;
+    color: #721d28;
+  }
+}
+
+.InputWithIcon {
+  display: grid;
+  grid-template-columns: 20% 80%;
   grid-gap: 2px;
   height: 75px;
+  margin-bottom: 10px;
+  justify-self: center;
+
   :first-child {
     margin-left: 10px;
   }
@@ -42,22 +56,27 @@
 }
 
 @media (max-width: 1050px) {
+  .InputWithIconWrapper {
+    margin-bottom: 50px;
+  }
   .InputWithIcon {
     width: unset;
-
-    margin-bottom: 50px;
-    .imageWrapper {
-      margin-right: 85px;
-    }
+    margin-bottom: 10px;
   }
 }
 
 @media (max-width: 500px) {
+  .InputWithIconWrapper {
+    p {
+      text-align: center;
+    }
+  }
   .InputWithIcon {
     grid-template-columns: 21% 70%;
     margin-left: 10px;
     width: 320px;
     justify-content: center;
+    justify-self: center;
   }
 }
 @media (max-width: 400px) {

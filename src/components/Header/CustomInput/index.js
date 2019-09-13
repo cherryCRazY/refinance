@@ -8,7 +8,6 @@ const CustomInput = ({ className, change, blur }) => {
       className={className}
       onChange={({ target: { value } }) => {
         change(value)
-        console.log(value)
       }}
       onBlur={blur}
       options={{
