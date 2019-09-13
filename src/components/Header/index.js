@@ -14,6 +14,7 @@ import debounce from "lodash/debounce"
 
 //Images
 import box from "../../images/box.png"
+import PNG_RAS from "../../images/PNG_RAS.png"
 import logo from "../../images/logo.png"
 import ico_calend from "../../images/ico_calend.png"
 
@@ -52,7 +53,12 @@ const Header = () => {
         <h1 className="header title">ВИГІДНО ПЕРЕКРЕДИТУЄМО </h1>
         <p className="header title">ВЖЕ ЗАВТРА — СПЛАЧУЙТЕ МЕНШЕ </p>
         <h2 className="header subtitle">НІЯКИХ СТРАХОВОК та «ЗІРОЧОК» </h2>
-        <img className="money_box" src={box} alt="ТАСКОМБАНК РЕФІНАНС"></img>
+        <img
+          className="money_box"
+          src={PNG_RAS}
+          alt="ТАСКОМБАНК РЕФІНАНС"
+          style={{ justifySelf: "center" }}
+        ></img>
         <a href="https://tascombank.ua/">
           <img src={logo} className="logo" alt="Лого ТАСКОМБАНК"></img>
         </a>

@@ -21,15 +21,39 @@ import {
 //Component
 import Button from "../Button"
 import InputWIthIcon from "../InputWIthIcon"
-import { async } from "q"
+import swal from "sweetalert"
 
-const kek = data => axios.post("/", data)
+const onSucces = value => {
+  swal(
+    "Заявку прийнято в роботу!",
+    `Ми зателефонуємо Вам найближчим часом`,
+    "success"
+  )
+}
+
+const onFail = value => {
+  swal("Помилка!", `Сервіс не відповідає спробуйте пізніше`, "error")
+}
+
+const onLoad = value => {
+  swal({
+    text: "Зачекайте ми оброблюємо вашу заявку",
+  })
+}
+const onLoadFinish = value => {
+  swal({
+    text: "Зачекайте ми оброблюємо вашу заявку",
+    close: true,
+  })
+}
 
 class Footer extends Component {
   state = {
     name: { valid: false, value: "", checked: false },
     phone: { valid: false, value: "", checked: false },
-    valid: false,
+    fetch: false,
+    fail: false,
+    success: false,
   }
 
   handleChangeName = value => {
@@ -66,17 +90,36 @@ class Footer extends Component {
     }
 
     if (isValidPhone && isValidName) {
+      this.setState({
+        fetch: true,
+      })
       const res = await axios.post("/", {
         name: name.value,
         phone: normalPhone,
       })
-      console.log("res", res)
+
+      if (res.status === 400) {
+        this.setState({
+          success: true,
+        })
+      } else {
+        this.setState({
+          fail: true,
+        })
+      }
+      setTimeout(() => {
+        this.setState({
+          success: false,
+          fail: false,
+        })
+      }, 2000)
     }
   }
 
   render() {
-    const { name, phone } = this.state
+    const { name, phone, fetch, fail, success } = this.state
 
+    console.log("fetch", fetch)
     return (
       <footer className="footer">
         <h3 className="text title">
@@ -112,6 +155,8 @@ class Footer extends Component {
           <p className="text">ТАСКОМБАНК</p>
         </a>
         <p className="text last">2019</p>
+        {success ? onSucces() : null}
+        {fail ? onFail() : null}
       </footer>
     )
   }
