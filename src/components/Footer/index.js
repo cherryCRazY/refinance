@@ -118,16 +118,7 @@ class Footer extends Component {
     return (
       <footer className="footer">
         {fetch ? (
-          <div
-            style={{
-              // display: "grid",
-              left: "50%",
-              transform: "translate(-50%,0)",
-
-              paddingTop: "150px",
-              paddingBottom: "250px",
-            }}
-          >
+          <div className="spinnerWrappers">
             <div class="lds-ring">
               <div></div>
               <div></div>

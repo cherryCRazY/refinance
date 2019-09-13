@@ -10,7 +10,7 @@ import Button from "../Button"
 import CustomInput from "./CustomInput"
 
 //utils
-import debounce from "lodash/debounce"
+// import debounce from "lodash/debounce"
 
 //Images
 // import box from "../../images/box.png"
@@ -19,7 +19,7 @@ import logo from "../../images/logo.png"
 import ico_calend from "../../images/ico_calend.png"
 
 //helpers
-import { findAvarage, moneyFormatToNumber } from "../../helpers/calc"
+import { findAvarage, moneyFormatToNumber, debounce } from "../../helpers/calc"
 
 const Header = () => {
   const [sum, setSum] = useState(0)
@@ -28,18 +28,24 @@ const Header = () => {
   const [checkField, setCheckField] = useState(false)
 
   const handleOnBlur = () => {
+    console.log("jaskdadjjsalsd")
     setCheckField(true)
   }
 
   const lol = debounce(handleOnBlur, 1000)
 
+  const calc = debounce(value => {
+    setCheckField(true)
+    setMonthPayment(value)
+    console.log("debounce")
+  }, 800)
+
   const handleChangeSum = value => setSum(moneyFormatToNumber(value))
   const handleChangeMonthPayment = value => {
-    setMonthPayment(moneyFormatToNumber(value))
-    lol()
+    calc(moneyFormatToNumber(value))
   }
 
-  const average = findAvarage(+sum, +count)
+  const average = checkField ? findAvarage(+sum, +count) : 0
   const determ = monthPayment - average
 
   console.log(
