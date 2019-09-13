@@ -39,7 +39,7 @@ class Footer extends Component {
   state = {
     name: { valid: false, value: "", checked: false },
     phone: { valid: false, value: "", checked: false },
-    fetch: false,
+    fetch: true,
     fail: false,
     success: false,
   }
@@ -81,25 +81,34 @@ class Footer extends Component {
       this.setState({
         fetch: true,
       })
-      const res = await axios.post("/", {
-        name: name.value,
-        phone: normalPhone,
-      })
-
-      if (res.status === 200) {
-        this.setState({
-          success: true,
+      try {
+        const res = await axios.post("/", {
+          name: name.value,
+          phone: normalPhone,
         })
-      } else {
+
+        if (res.status === 200) {
+          this.setState({
+            success: true,
+            fetch: false,
+          })
+        } else {
+          this.setState({
+            fail: true,
+            fetch: false,
+          })
+        }
+      } catch (error) {
         this.setState({
           fail: true,
+          fetch: false,
+        })
+      } finally {
+        this.setState({
+          success: false,
+          fail: false,
         })
       }
-
-      this.setState({
-        success: false,
-        fail: false,
-      })
     }
   }
 
@@ -108,35 +117,46 @@ class Footer extends Component {
 
     return (
       <footer className="footer">
-        <h3 className="text title">
-          Залиш заявку - і вже завтра сплачуй менше
-        </h3>
-        <div className="feedback_wrapper">
-          <div className="feedback">
-            <InputWIthIcon
-              img={person}
-              change={this.handleChangeName}
-              message={"Перевірте правильність вводу ім'я"}
-              checked={name.checked}
-              valid={name.valid}
-            ></InputWIthIcon>
-            <InputWIthIcon
-              img={phone_icon}
-              change={this.handleChangePhone}
-              checked={phone.checked}
-              valid={phone.valid}
-              message={
-                "Перевірте правильність вводу номера мобільного телефону"
-              }
-              type={"number"}
-              mask
-            ></InputWIthIcon>
-            <Button
-              style={{ alignSelf: "flex-start" }}
-              click={this.handleOnClick}
-            ></Button>
+        {fetch ? (
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-        </div>
+        ) : (
+          <>
+            <h3 className="text title">
+              Залиш заявку - і вже завтра сплачуй менше
+            </h3>
+            <div className="feedback_wrapper">
+              <div className="feedback">
+                <InputWIthIcon
+                  img={person}
+                  change={this.handleChangeName}
+                  message={"Перевірте правильність вводу ім'я"}
+                  checked={name.checked}
+                  valid={name.valid}
+                ></InputWIthIcon>
+                <InputWIthIcon
+                  img={phone_icon}
+                  change={this.handleChangePhone}
+                  checked={phone.checked}
+                  valid={phone.valid}
+                  message={
+                    "Перевірте правильність вводу номера мобільного телефону"
+                  }
+                  type={"number"}
+                  mask
+                ></InputWIthIcon>
+                <Button
+                  style={{ alignSelf: "flex-start" }}
+                  click={this.handleOnClick}
+                ></Button>
+              </div>
+            </div>
+          </>
+        )}
         <a href="https://tascombank.ua/" style={{ textDecoration: "none" }}>
           <p className="text">ТАСКОМБАНК</p>
         </a>
