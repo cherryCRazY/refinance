@@ -11,6 +11,10 @@ header {
     display: grid;
     justify-content: center;
   }
+  .money_box {
+    width: 420px;
+    padding-top: 50px;
+  }
 
   .header {
     font-family: "GothamProBlack";
@@ -19,6 +23,9 @@ header {
     display: inline-block;
     &.title {
       font-size: 44px;
+      &.little {
+        font-size: 40px;
+      }
     }
     &.subtitle {
       font-style: normal;
@@ -175,6 +182,9 @@ input::-webkit-inner-spin-button {
       &.title {
         font-size: 36px;
         text-align: center;
+        &.little {
+          font-size: 32px;
+        }
       }
       &.subtitle {
         font-size: 27.5px;
@@ -201,6 +211,9 @@ input::-webkit-inner-spin-button {
       .header {
         &.title {
           font-size: 54px;
+          &.little {
+            font-size: 50px;
+          }
         }
         &.subtitle {
           font-size: 37.5px;
@@ -267,6 +280,9 @@ input::-webkit-inner-spin-button {
       &.title {
         text-align: center;
         font-size: 32px;
+        &.little {
+          font-size: 28px;
+        }
       }
       &.subtitle {
         font-size: 20.5px;

@@ -39,7 +39,7 @@ class Footer extends Component {
   state = {
     name: { valid: false, value: "", checked: false },
     phone: { valid: false, value: "", checked: false },
-    fetch: true,
+    fetch: false,
     fail: false,
     success: false,
   }
@@ -118,16 +118,27 @@ class Footer extends Component {
     return (
       <footer className="footer">
         {fetch ? (
-          <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div
+            style={{
+              // display: "grid",
+              left: "50%",
+              transform: "translate(-50%,0)",
+
+              paddingTop: "150px",
+              paddingBottom: "250px",
+            }}
+          >
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         ) : (
           <>
             <h3 className="text title">
-              Залиш заявку - і вже завтра сплачуй менше
+              Залиште заявку - і вже завтра сплачуйте менше
             </h3>
             <div className="feedback_wrapper">
               <div className="feedback">

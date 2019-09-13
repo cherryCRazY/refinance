@@ -50,9 +50,11 @@ const Header = () => {
   return (
     <header>
       <div className="wrapper_text">
-        <h1 className="header title">ВИГІДНО ПЕРЕКРЕДИТУЄМО </h1>
-        <p className="header title">ВЖЕ ЗАВТРА — СПЛАЧУЙТЕ МЕНШЕ </p>
-        <h2 className="header subtitle">НІЯКИХ СТРАХОВОК та «ЗІРОЧОК» </h2>
+        <h1 className="header title">ПЕРЕКРЕДИТУЄМО! </h1>
+        <p className="header title little ">ВЖЕ ЗАВТРА — СПЛАЧУЙТЕ МЕНШЕ </p>
+        <h2 className="header subtitle" style={{ color: "#ffdc73" }}>
+          НІЯКИХ СТРАХОВОК та «ЗІРОЧОК»{" "}
+        </h2>
         <img
           className="money_box"
           src={PNG_RAS}
@@ -88,12 +90,11 @@ const Header = () => {
                 alt="ТАСКОМБАНК РЕФІНАНС"
               ></img>
             </p>
-            <input
-              type="text"
-              value={checkField && average > 0 ? average : " "}
-              disabled
-              className="input small tas"
-            ></input>
+            <div className="input tas">
+              {checkField && average > 0
+                ? average.toLocaleString("currency")
+                : " "}
+            </div>
           </label>
         </div>
         <div className="range_wrapper input_wrapper">
@@ -101,25 +102,21 @@ const Header = () => {
             <img src={ico_calend} alt="icon calendar"></img>
             <p>період, міс</p>
           </div>
-          <Slider
-            change={setCount}
-            count={count}
-            // count={checkField && determ < 0 ? changeSlider() : count}
-          ></Slider>
+          <Slider change={setCount} count={count}></Slider>
         </div>
 
         <div className="small_inputs input_wrapper sale">
           <label>
             <p className="text small">Економія за місяць</p>
             <div type="number" className="input small tas">
-              {determ > 0 ? determ : ""}
+              {determ > 0 ? determ.toLocaleString("currency") : ""}
             </div>
           </label>
           <label></label>
           <label>
             <p className="text small">Економія за весь період</p>
             <div type="text" disabled className="input small tas">
-              {determ > 0 ? determ * count : ""}
+              {determ > 0 ? (determ * count).toLocaleString("currency") : ""}
             </div>
           </label>
         </div>
