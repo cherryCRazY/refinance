@@ -35,18 +35,6 @@ const onFail = value => {
   swal("Помилка!", `Сервіс не відповідає спробуйте пізніше`, "error")
 }
 
-const onLoad = value => {
-  swal({
-    text: "Зачекайте ми оброблюємо вашу заявку",
-  })
-}
-const onLoadFinish = value => {
-  swal({
-    text: "Зачекайте ми оброблюємо вашу заявку",
-    close: true,
-  })
-}
-
 class Footer extends Component {
   state = {
     name: { valid: false, value: "", checked: false },
@@ -98,7 +86,7 @@ class Footer extends Component {
         phone: normalPhone,
       })
 
-      if (res.status === 400) {
+      if (res.status === 200) {
         this.setState({
           success: true,
         })
@@ -107,19 +95,17 @@ class Footer extends Component {
           fail: true,
         })
       }
-      setTimeout(() => {
-        this.setState({
-          success: false,
-          fail: false,
-        })
-      }, 2000)
+
+      this.setState({
+        success: false,
+        fail: false,
+      })
     }
   }
 
   render() {
     const { name, phone, fetch, fail, success } = this.state
 
-    console.log("fetch", fetch)
     return (
       <footer className="footer">
         <h3 className="text title">

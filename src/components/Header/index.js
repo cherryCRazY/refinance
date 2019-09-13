@@ -13,7 +13,7 @@ import CustomInput from "./CustomInput"
 import debounce from "lodash/debounce"
 
 //Images
-import box from "../../images/box.png"
+// import box from "../../images/box.png"
 import PNG_RAS from "../../images/PNG_RAS.png"
 import logo from "../../images/logo.png"
 import ico_calend from "../../images/ico_calend.png"
