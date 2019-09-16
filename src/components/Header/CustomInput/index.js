@@ -2,7 +2,7 @@ import React from "react"
 
 import Cleave from "cleave.js/react"
 
-const CustomInput = ({ className, change, blur }) => {
+const CustomInput = ({ className, change, blur, disabled, value }) => {
   return (
     <Cleave
       className={className}
@@ -10,9 +10,13 @@ const CustomInput = ({ className, change, blur }) => {
         change(value)
       }}
       onBlur={blur}
+      value={value}
+      disabled={disabled}
       options={{
         numeral: true,
-        numeralThousandsGroupStyle: "thousand",
+        numeralPositiveOnly: true,
+        numeralDecimalMark: "!",
+        delimiter: " ",
       }}
     />
   )

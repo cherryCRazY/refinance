@@ -1,5 +1,3 @@
-// sum=((2*average*count)/(2+percent*(count+1)))
-
 const PERCENT = 0.036
 
 export const findAvarage = (sum, count) =>
@@ -8,7 +6,7 @@ export const findAvarage = (sum, count) =>
 export const findSum = (average, count) =>
   ((2 * average * count) / (2 + PERCENT * (count + 1))) | 0
 
-export const moneyFormatToNumber = str => +str.replace(/,/g, "")
+export const moneyFormatToNumber = str => +str.replace(/\s/g, "")
 
 export function debounce(func, wait, immediate) {
   var timeout

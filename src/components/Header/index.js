@@ -21,6 +21,11 @@ import ico_calend from "../../images/ico_calend.png"
 //helpers
 import { findAvarage, moneyFormatToNumber, debounce } from "../../helpers/calc"
 
+console.log(
+  `%c TASCOMBANK`,
+  "background: #333366; color: white; font-size: 15px; padding: 3px 40%;"
+)
+
 const Header = () => {
   const [sum, setSum] = useState(0)
   const [monthPayment, setMonthPayment] = useState(0)
@@ -28,7 +33,6 @@ const Header = () => {
   const [checkField, setCheckField] = useState(false)
 
   const handleOnBlur = () => {
-    console.log("jaskdadjjsalsd")
     setCheckField(true)
   }
 
@@ -47,11 +51,6 @@ const Header = () => {
 
   const average = checkField ? findAvarage(+sum, +count) : 0
   const determ = monthPayment - average
-
-  console.log(
-    `%c TASCOMBANK`,
-    "background: #333366; color: white; font-size: 15px; padding: 3px 40%;"
-  )
 
   return (
     <header>
@@ -96,11 +95,15 @@ const Header = () => {
                 alt="ТАСКОМБАНК РЕФІНАНС"
               ></img>
             </p>
-            <div className="input tas">
-              {checkField && average > 0
-                ? average.toLocaleString("currency")
-                : " "}
-            </div>
+            <CustomInput
+              className="input tas"
+              disabled
+              value={
+                checkField && average > 0
+                  ? average.toLocaleString("currency")
+                  : " "
+              }
+            ></CustomInput>
           </label>
         </div>
         <div className="range_wrapper input_wrapper">
@@ -114,16 +117,20 @@ const Header = () => {
         <div className="small_inputs input_wrapper sale">
           <label>
             <p className="text small">Економія за місяць</p>
-            <div type="number" className="input small tas">
-              {determ > 0 ? determ.toLocaleString("currency") : ""}
-            </div>
+            <CustomInput
+              className="input small tas"
+              disabled
+              value={determ > 0 ? determ : ""}
+            ></CustomInput>
           </label>
           <label></label>
           <label>
             <p className="text small">Економія за весь період</p>
-            <div type="text" disabled className="input small tas">
-              {determ > 0 ? (determ * count).toLocaleString("currency") : ""}
-            </div>
+            <CustomInput
+              className="input small tas"
+              disabled
+              value={determ > 0 ? determ * count : ""}
+            ></CustomInput>
           </label>
         </div>
         <Button jump></Button>
