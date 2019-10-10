@@ -4,7 +4,7 @@ import React from "react"
 //Components
 import Header from "../components/Header"
 import Advanteges from "../components/Advanteges"
-import Footer from "../components/Footer"
+import Footer from "../components/FooterContainer"
 import SEO from "../components/seo"
 
 //Styles

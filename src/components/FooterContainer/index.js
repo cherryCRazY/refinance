@@ -22,6 +22,7 @@ import {
 import Button from "../Button"
 import InputWIthIcon from "../InputWIthIcon"
 import swal from "sweetalert"
+import Footer from "./Footer"
 
 const onSucces = value => {
   swal(
@@ -35,7 +36,7 @@ const onFail = value => {
   swal("Помилка!", `Сервіс не відповідає спробуйте пізніше`, "error")
 }
 
-class Footer extends Component {
+class FooterContainer extends Component {
   state = {
     name: { valid: false, value: "", checked: false },
     phone: { valid: false, value: "", checked: false },
@@ -159,10 +160,7 @@ class Footer extends Component {
             </div>
           </>
         )}
-        <a href="https://tascombank.ua/" style={{ textDecoration: "none" }}>
-          <p className="text">ТАСКОМБАНК</p>
-        </a>
-        <p className="text last">2019</p>
+        <Footer></Footer>
         {success ? onSucces() : null}
         {fail ? onFail() : null}
       </footer>
@@ -170,4 +168,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer
+export default FooterContainer

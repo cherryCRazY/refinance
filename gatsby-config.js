@@ -14,21 +14,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-26121367-15",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-        // Any additional create only fields (optional)
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "refinance.tascombank.ua",
-      },
-    },
-    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "GTM-KL53PM9",
+        id: "GTM-N66VHQ7",
 
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
